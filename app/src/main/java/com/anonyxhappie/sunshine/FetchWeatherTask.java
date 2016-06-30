@@ -208,7 +208,6 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
             for (String dayForcastStr : result){
                 forecastFragment.mForecastAdapter.add(dayForcastStr);
             }
-            forecastFragment.listView.setAdapter((android.widget.ListAdapter) forecastFragment.mForecastAdapter);
         }
     }
 
