@@ -39,7 +39,7 @@ import java.util.List;
  */
 public class ForecastFragment extends Fragment {
 
-    public ArrayAdapter<String> mForecastAdapter;
+    public static ArrayAdapter<String> mForecastAdapter;
     public ListView listView;
 
     public ForecastFragment() {
@@ -77,23 +77,17 @@ public class ForecastFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        String[] forecastArray = {
+        String[] data = {
                 "Today - Sunny - 88/63",
                 "Tomorrow - Foggy - 70/40",
                 "Weds - Cloudy - 72/63",
-                "Today - Sunny - 88/63",
-                "Tomorrow - Foggy - 70/40",
-                "Weds - Cloudy - 72/63",
-                "Today - Sunny - 88/63",
-                "Tomorrow - Foggy - 70/40",
-                "Weds - Cloudy - 72/63",
-                "Today - Sunny - 88/63",
-                "Tomorrow - Foggy - 70/40",
-                "Weds - Cloudy - 72/63",
-                "Today - Sunny - 88/63"
+                "Thur - Sunny - 88/63",
+                "Fri - Foggy - 70/40",
+                "Sat - Cloudy - 72/63",
+                "Sun - Sunny - 88/63"
         };
 
-        List<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastArray));
+        List<String> weekForecast = new ArrayList<String>(Arrays.asList(data));
 
         mForecastAdapter = new ArrayAdapter<String>(getActivity(),
                 R.layout.list_item_forecast,

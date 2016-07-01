@@ -21,6 +21,7 @@ import java.util.Date;
 public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
     ForecastFragment forecastFragment;
+
     private final String LOG_TAG = FetchWeatherTask.class.getSimpleName();
 
     private String getReadableDateString(long time){
@@ -111,9 +112,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
             resultStrs[i] = day + " - " + description + " - " + highAndLow;
         }
 
-        for (String s: resultStrs){
-            Log.v(LOG_TAG, "Forecast entry: " + s);
-        }
+        //for (String s: resultStrs) Log.v(LOG_TAG, "Forecast entry: " + s);
 
         return resultStrs;
     }
@@ -152,7 +151,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
             URL url = new URL(builtUri.toString());
 
-            Log.v(LOG_TAG, "Built URI " + builtUri.toString());
+            //Log.v(LOG_TAG, "Built URI " + builtUri.toString());
 
             urlConnection = (HttpURLConnection)url.openConnection();
             urlConnection.setRequestMethod("GET");
@@ -174,7 +173,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
             }
             forcastJsonStr = buffer.toString();
 
-            Log.v(LOG_TAG, "Forecast JSON String: " + forcastJsonStr);
+            //Log.v(LOG_TAG, "Forecast JSON String: " + forcastJsonStr);
 
         }catch (IOException e){
             Log.e(LOG_TAG, "Error ", e);
@@ -201,14 +200,14 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
         return null;
     }
+
     @Override
-    protected void onPostExecute(String[] result){
-        if(result != null){
+    protected void onPostExecute(String[] result) {
+        if (result != null){
             forecastFragment.mForecastAdapter.clear();
             for (String dayForcastStr : result){
                 forecastFragment.mForecastAdapter.add(dayForcastStr);
             }
         }
     }
-
 }
