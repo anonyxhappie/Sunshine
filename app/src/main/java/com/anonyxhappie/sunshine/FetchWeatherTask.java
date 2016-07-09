@@ -133,7 +133,7 @@ public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
         String format = "json";
         String units = "metric";
         int numDays = 7;
-        String appID = "315404b86fa1b68fb45d5469b50e9aba";
+        String appID = "API_KEY";
         try{
             final String FORECAST_BASE_URL = "http://api.openweathermap.org/data/2.5/forecast/city?";
             final String QUERY_PARAM = "id";
